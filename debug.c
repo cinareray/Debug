@@ -3,12 +3,12 @@
 
 #include <stdarg.h>
 #include <stdio.h>
-
-#include <tim.h>
 #include <inttypes.h>
-
 #include "debug.h"	
-#include "usart.h"
+
+/*GetTimerSec() and GetTimerMs() are returning milisecond and second. We can add time information.*/
+//#include <tim.h>
+
 
 //struct timeval beg;
 //struct timespec beg;
@@ -60,7 +60,7 @@ int debug_printf(const int debug_level, const int debug_module, const char* func
 
 	if(debug_level <= debug_threshold){
 
-		fprintf(stdout,"[%"PRIu32":%03"PRIu32"] ",GetTimerSec()%3600,GetTimerMs()%1000);		
+		//fprintf(stdout,"[%"PRIu32":%03"PRIu32"] ",GetTimerSec()%3600,GetTimerMs()%1000);		
 		fprintf(stdout,"%s:%s ",debug_level_get_string(debug_level),debug_module_get_string(debug_module));
 
 		va_list va;
